@@ -16,8 +16,7 @@ FROM employee_demographics dem
 JOIN employee_salary sal
 	ON dem.employee_id = sal.employee_id
 GROUP BY gender
-) ex
-;
+) ex;
 
 WITH CTE_EXAMPLE AS
 ( SELECT gender, employee_id, birth_date
