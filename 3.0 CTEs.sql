@@ -18,12 +18,13 @@ JOIN employee_salary sal
 GROUP BY gender
 ) ex;
 
+
 WITH CTE_EXAMPLE AS
 ( SELECT gender, employee_id, birth_date
 FROM employee_demographics dem
 WHERE birth_date > '1985-01-01'
 ),
-CTE_EXAMPLE2 AS 
+CTE_EXAMPLE2 AS
 (
 SELECT salary, employee_id
 FROM employee_salary
@@ -31,5 +32,5 @@ WHERE salary > 50000
 )
 SELECT *
 FROM CTE_EXAMPLE
-JOIN CTE_EXAMPLE2 
+JOIN CTE_EXAMPLE2
 	ON CTE_EXAMPLE.employee_id = CTE_EXAMPLE2.employee_id;
